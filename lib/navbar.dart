@@ -5,6 +5,7 @@ import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'team_rankings.dart';
 import 'profile.dart';
 import 'news.dart';
+import 'login.dart';
 
 
 class MyNavbar extends StatefulWidget {
@@ -81,7 +82,7 @@ class _MyNavbarState extends State<MyNavbar> with SingleTickerProviderStateMixin
         children: [
           Rankings(),
           News(),
-          Profile(),
+          const MyLogin(),
         ],
       ),
     );
