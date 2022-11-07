@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/landingpage.dart';
-import 'team_rankings.dart';
+import 'navbar.dart';
 
 void main() => runApp(MyApp());
 
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         fontFamily: 'Poppins',
       ),
-      home: Rankings(),
+      home: MyNavbar(title: "Rankings"),
       debugShowCheckedModeBanner: false,
     );
   }

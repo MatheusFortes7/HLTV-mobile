@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/team_profile.dart';
+import 'package:circle_nav_bar/circle_nav_bar.dart';
 
 
 class Rankings extends StatefulWidget {
@@ -49,15 +50,15 @@ class _RankingsState extends State<Rankings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 0, 81, 122),
+      backgroundColor: Color.fromARGB(255, 63, 0, 122),
       appBar: AppBar(
         title: Text(
-          "HLTV",
+          "Ranking",
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 0, 81, 122),
+        backgroundColor: Color.fromARGB(255, 63, 0, 122),
       ),
       body: Container(
         //height: 600,
@@ -78,7 +79,7 @@ class _RankingsState extends State<Rankings> {
                 "CS:GO World ranking",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Color.fromARGB(255, 102, 102, 102),
+                    color: Color.fromARGB(255, 0, 0, 0),
                     fontWeight: FontWeight.bold),
               ),
             ),
