@@ -1,9 +1,10 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/http/repository/http_controller.dart';
 import 'package:flutter_application_1/team_profile.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 
-
+/*
 class Rankings extends StatefulWidget {
   @override
   _RankingsState createState() => _RankingsState();
@@ -145,4 +146,29 @@ class _RankingsState extends State<Rankings> {
       ),
     );
   }
+}*/
+
+
+class TeamRanking extends GetView<HttpController>{
+
+  @override 
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(title: Text('Http'),),
+      body: controller.obx(state) {
+        return ListView.builder(
+          itemCount: state.length,
+          itemBuilder: (_, index){
+            final TeamModel item = state{index};
+            return ListTile(
+              title: Text(item.name)
+            );
+          }
+        );
+      }, onError: (error){
+        return Center(child: Text(error));
+      }
+    );
+  }
+
 }
