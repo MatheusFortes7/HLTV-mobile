@@ -37,19 +37,19 @@ class PlayerProfile {
       this.adr,
       this.kpr);
 
-  PlayerProfile.fromJson(Map<String, dynamic> json)
-      : nickname = json['nickname'],
-        name = json['name'],
-        teamName = json['team-name'],
-        age = json['age'],
-        playerId = json['player-id'],
-        teamId = json['team-id'],
-        rating = json['rating'],
-        dpr = json['DPR'],
-        kast = json['KAST'].substring(0, 4),
-        impact = json['impact'],
-        adr = json['ADR'],
-        kpr = json['KPR'];
+  PlayerProfile.fromJson(Map<String, dynamic> player_types)
+      : nickname = player_types['nickname'],
+        name = player_types['name'],
+        teamName = player_types['team-name'],
+        age = player_types['age'],
+        playerId = player_types['player-id'],
+        teamId = player_types['team-id'],
+        rating = player_types['rating'],
+        dpr = player_types['DPR'],
+        kast = player_types['KAST'].substring(0, 4),
+        impact = player_types['impact'],
+        adr = player_types['ADR'],
+        kpr = player_types['KPR'];
 }
 
 class _PlayerProfilePageState extends State<PlayerProfilePage> {

@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/http/repository/http_controller.dart';
 import 'package:flutter_application_1/team_profile.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 
@@ -14,11 +15,11 @@ class Team{
   int rank, points, teamId;
   Team(this.teamName, this.rank, this.points, this.teamId);
 
-  Team.fromJson(Map<String, dynamic> json)
-      : teamName = json['team-name'],
-        rank = json['rank'],
-        points = json['points'],
-        teamId = json['team-id'];
+  Team.fromJson(Map<String, dynamic> team_model)
+      : teamName = team_model['team-name'],
+        rank = team_model['rank'],
+        points = team_model['points'],
+        teamId = team_model['team-id'];
 }
 
 class _RankingsState extends State<Rankings> {
@@ -146,3 +147,6 @@ class _RankingsState extends State<Rankings> {
     );
   }
 }
+
+
+
