@@ -2,30 +2,41 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/team_profile.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
-
+import 'package:http/http.dart' as http;
 
 class Rankings extends StatefulWidget {
   @override
   _RankingsState createState() => _RankingsState();
 }
 
-class Team{
+class Team {
   String teamName = "";
-  int rank, points, teamId;
-  Team(this.teamName, this.rank, this.points, this.teamId);
+  int rank, teamId;
+  Team(this.teamName, this.rank, this.teamId);
 
   Team.fromJson(Map<String, dynamic> json)
-      : teamName = json['team-name'],
-        rank = json['rank'],
-        points = json['points'],
-        teamId = json['team-id'];
+      : teamName = json['name'],
+        rank = json['ranking'],
+        teamId = json['id'];
+}
+
+recuperaTeams() async {
+  String url = "https://hltv-api.vercel.app/api/player.json";
+  var response = await http.get(Uri.parse(url));
+  var teamsJson = json.decode(response.body);
+  var teams = <Team>[];
+  for (var team in teamsJson) {
+    teams.add(Team.fromJson(team));
+  }
+  return teams;
 }
 
 class _RankingsState extends State<Rankings> {
   List<Team> _teams = <Team>[]; // List of teams
-
+/*
   Future<List<Team>> fetchTeams() async {
-    String data = await DefaultAssetBundle.of(context).loadString("assets/teams.json"); 
+    String data =
+        await DefaultAssetBundle.of(context).loadString("assets/teams.json");
     final teamsJson = json.decode(data);
 
     var teams = <Team>[];
@@ -36,11 +47,11 @@ class _RankingsState extends State<Rankings> {
 
     return teams;
   }
-
+*/
   @override
   void initState() {
     super.initState();
-    fetchTeams().then((value) {
+    recuperaTeams().then((value) {
       setState(() {
         _teams.addAll(value);
       });
@@ -127,10 +138,6 @@ class _RankingsState extends State<Rankings> {
                               _teams[index].teamName,
                               style: TextStyle(fontWeight: FontWeight.bold),
                             ),
-                          ),
-                          Container(
-                            width: 100,
-                            child: Text(_teams[index].points.toString()),
                           ),
                         ],
                       ),
