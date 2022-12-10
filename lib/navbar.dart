@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/team_profile.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'team_rankings.dart';
 import 'profile.dart';
