@@ -92,6 +92,7 @@ class _News extends State<News> {
                   Uri a;
                   return InkWell(
                     onTap: () async => {
+                      print("click"),
                       a = Uri.parse(_news[index].link),
                       if (await canLaunchUrl(a)) { 
                         launchUrl(a)

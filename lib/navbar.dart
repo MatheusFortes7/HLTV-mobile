@@ -5,6 +5,7 @@ import 'team_rankings.dart';
 import 'profile.dart';
 import 'news.dart';
 import 'login.dart';
+import 'profile.dart';
 
 
 class MyNavbar extends StatefulWidget {
@@ -82,6 +83,7 @@ class _MyNavbarState extends State<MyNavbar> with SingleTickerProviderStateMixin
           Rankings(),
           News(),
           const MyLogin(),
+          Profile()
         ],
       ),
     );

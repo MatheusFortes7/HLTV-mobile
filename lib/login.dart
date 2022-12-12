@@ -3,6 +3,7 @@ import 'package:flutter_application_1/news.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'DAO.dart';
+import 'profile.dart';
 import 'main.dart';
 import 'register.dart';
 
@@ -95,7 +96,7 @@ class _MyLoginState extends State<MyLogin> {
                                         Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: (context) => News()),
+                                              builder: (context) => Profile()),
                                         );
                                       } else {
                                         Navigator.push(
