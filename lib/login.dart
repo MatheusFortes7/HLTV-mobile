@@ -4,6 +4,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'DAO.dart';
 import 'profile.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'main.dart';
 import 'register.dart';
 
@@ -21,6 +22,29 @@ class _MyLoginState extends State<MyLogin> {
   Widget build(BuildContext context) {
     TextEditingController _controlleremail = TextEditingController();
     TextEditingController _controllersenha = TextEditingController();
+
+    _salvarDados() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setString('email', _controlleremail.text);
+      DAO dao = new DAO();
+      dao.listarUnicoUsuarioByEmail(_controlleremail.text).then((value) {
+        prefs.setString('nome', value.getNome());
+      });
+    }
+
+    _validarEmail() async {
+      DAO dao = new DAO();
+      dao.listarUnicoUsuarioByEmail(_controlleremail.text).then((value) {
+        if (value.getEmail() == _controlleremail.text) {
+          _salvarDados();
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Profile()));
+        } else {
+          Navigator.push(
+              context, MaterialPageRoute(builder: (context) => MyLogin()));
+        }
+      });
+    }
 
     return Container(
       decoration: BoxDecoration(
@@ -92,20 +116,8 @@ class _MyLoginState extends State<MyLogin> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      if (dao.listarUnicoUsuario(_controlleremail.text) != null) {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => Profile()),
-                                        );
-                                      } else {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(
-                                              builder: (context) => MyLogin()),
-                                        );
-                                      }
-                                      ;
+                                      //!to mexendo aqui
+                                      _validarEmail();
                                     },
                                     icon: Icon(
                                       Icons.arrow_forward,

@@ -144,12 +144,14 @@ class _MyRegisterState extends State<MyRegister> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      if(_controlleremail != null && _controllernome != null && _controllersenha != null){
+                                      if(_controlleremail.toString() != "" && _controllernome.toString() != "" && _controllersenha.toString() != ""){
                                           dao.salvarDadosUsuario(
                                             _controllernome.text,
                                             _controlleremail.text,
                                             _controllersenha.text);
                                         Navigator.pushNamed(context, 'login');
+                                      } else {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => MyRegister()));
                                       }
                                     },
                                     icon: Icon(
