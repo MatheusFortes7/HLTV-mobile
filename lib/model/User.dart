@@ -16,15 +16,15 @@ class Usuario {
 
 
   String getNome() {
-    return this._nome;
+    return _nome;
   }
 
   String getEmail() {
-    return this._email;
+    return _email;
   }
 
   String getSenha() {
-    return this._senha;
+    return _senha;
   }
 
   void setNome(String nome) {

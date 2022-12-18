@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/team_profile.dart';
 import 'package:circle_nav_bar/circle_nav_bar.dart';
 import 'package:http/http.dart' as http;
 
@@ -10,14 +9,15 @@ class Rankings extends StatefulWidget {
 }
 
 class Team {
-  String teamName = "";
+  String teamName = "", logo;
   int rank, teamId;
-  Team(this.teamName, this.rank, this.teamId);
+  Team(this.teamName, this.rank, this.teamId, this.logo);
 
   Team.fromJson(Map<String, dynamic> json)
       : teamName = json['name'],
         rank = json['ranking'],
-        teamId = json['id'];
+        teamId = json['id'],
+        logo = json['logo'];
 }
 
 recuperaTeams() async {
@@ -61,20 +61,20 @@ class _RankingsState extends State<Rankings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 63, 0, 122),
+      backgroundColor: Color.fromARGB(255,45, 50, 72),
       appBar: AppBar(
         title: Text(
           "Ranking",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 243, 101, 33), fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 63, 0, 122),
+        backgroundColor: Color.fromARGB(255,45, 50, 72),
       ),
       body: Container(
         //height: 600,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Color.fromARGB(255,45, 50, 72),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -90,7 +90,7 @@ class _RankingsState extends State<Rankings> {
                 "CS:GO World ranking",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontWeight: FontWeight.bold),
               ),
             ),
@@ -100,14 +100,6 @@ class _RankingsState extends State<Rankings> {
               child: ListView.builder(
                 itemBuilder: (context, index) {
                   return InkWell(
-                    onTap: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => TeamProfilePage(
-                                    teamId: _teams[index].teamId.toString(),
-                                  )));
-                    },
                     child: Card(
                       elevation: 4,
                       child: Row(
@@ -125,10 +117,11 @@ class _RankingsState extends State<Rankings> {
                           Container(
                             width: 70,
                             padding: EdgeInsets.all(10),
-                            child: Image(
-                              image: AssetImage('assets/team_logos/' +
-                                  _teams[index].teamId.toString() +
-                                  '.png'),
+                            child: Image.network(
+                              _teams[index].logo,
+                              fit: BoxFit.cover,
+                              width: 50,
+                              height: 50,
                             ),
                           ),
                           Container(

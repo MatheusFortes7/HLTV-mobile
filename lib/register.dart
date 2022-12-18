@@ -3,6 +3,7 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'model/User.dart';
 import 'DAO.dart';
+import 'login.dart';
 
 class MyRegister extends StatefulWidget {
   const MyRegister({Key? key}) : super(key: key);
@@ -143,12 +144,14 @@ class _MyRegisterState extends State<MyRegister> {
                                 child: IconButton(
                                     color: Colors.white,
                                     onPressed: () {
-                                      if(_controlleremail != null && _controllernome != null && _controllersenha != null){
+                                      if(_controlleremail.toString() != "" && _controllernome.toString() != "" && _controllersenha.toString() != ""){
                                           dao.salvarDadosUsuario(
                                             _controllernome.text,
                                             _controlleremail.text,
                                             _controllersenha.text);
                                         Navigator.pushNamed(context, 'login');
+                                      } else {
+                                        Navigator.push(context, MaterialPageRoute(builder: (context) => MyRegister()));
                                       }
                                     },
                                     icon: Icon(
@@ -165,8 +168,11 @@ class _MyRegisterState extends State<MyRegister> {
                             children: [
                               TextButton(
                                 onPressed: () {
-                                  Navigator.pushNamed(context, 'login');
-                                  // Navigator.of(context).push(_createRoute());
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => MyLogin()),
+                                  );
                                 },
                                 child: Text(
                                   'Sign In',
