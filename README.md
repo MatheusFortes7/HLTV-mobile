@@ -43,10 +43,24 @@ git clone https://github.com/MatheusFortes7/HLTV-mobile.git
 
 ## Telas da aplicação
 
+Abaixo é possivel ver as telas principais da aplicação, onde aparecem o ranking mundial do competitivo do jogo e as noticias do jogo 
+
+<img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_04.png" width=200> <img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_05.png" width=200>
+
+Algumas das imagens não são carregadas corretamente pois eles sao salvos na api como arquivos svg, e não por arquivos png, que são os arquivos lidos pela função no flutter.
+
+Na tela de noticia, quando a noticia é clicada, é aberto uma pagina com a noticia no site oficial, podemos ver um exemplo de como essa página e aberta abaixo.
+
+<img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_06.png" width=200>
+
+Agora é possivel ver as telas em relação ao login da aplicação, respectivamente, temos a tela de login, a tela de registro e a tela de perfil
+
+<img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_02.png" width=200> <img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_03.png" width=200> <img src="https://github.com/MatheusFortes7/HLTV-mobile/blob/master/flutter_01.png" width=200>
 
 ## API
 
 Para mostrar as noticas e o ranking, foi utilizada uma api do site [hltv](hltv.org), porém como o site oficial nao libera uma api oficial, foi utilizada uma api encontrada na internet.
+
 Para ter acesso a api utilizada no aplicativo, clique [aqui](https://hltv-api.vercel.app)
 
 ## Banco de dados
