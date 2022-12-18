@@ -41,7 +41,7 @@ class _Profile extends State<Profile> {
             child: Container(
               height: 230,
               decoration: BoxDecoration(
-                color: Color.fromARGB(255, 162, 0, 255),
+                color: Color.fromARGB(255,45, 50, 72),
                 borderRadius: BorderRadius.only(
                     bottomLeft: Radius.elliptical(200, 40),
                     bottomRight: Radius.elliptical(200, 40)),
@@ -49,9 +49,9 @@ class _Profile extends State<Profile> {
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
-                  "Perfil",
+                  "Seu perfil",
                   style: GoogleFonts.varelaRound(
-                      fontSize: 60, color: Colors.white),
+                      fontSize: 60, color: Color.fromARGB(255 , 243, 101, 33)),
                 ),
               ),
             ),
@@ -65,7 +65,7 @@ class _Profile extends State<Profile> {
                   height: 120,
                   width: 250,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: Color.fromARGB(255 , 243, 101, 33),
                     shape: BoxShape.circle,
                   ),
                   child: Icon(Icons.person, size: 100),
@@ -84,14 +84,15 @@ class _Profile extends State<Profile> {
     return Padding(
         padding: const EdgeInsets.fromLTRB(50, 0, 50, 30),
         child: ClipRRect(
-          borderRadius: BorderRadius.circular(10),
+          borderRadius: BorderRadius.circular(50),
           child: ListTile(
-            tileColor: Colors.white,
+            tileColor: Color.fromARGB(255,45, 50, 72),
             leading: Icon(
               icon,
-              color: Colors.teal,
+              color: Color.fromARGB(255 , 243, 101, 33),
             ),
             title: Text(title),
+            textColor: Colors.white,
           ),
         ));
   }

@@ -47,16 +47,16 @@ class _MyNavbarState extends State<MyNavbar> with SingleTickerProviderStateMixin
       extendBody: true,
       bottomNavigationBar: CircleNavBar(
         activeIcons: const [
-          Icon(Icons.list, color: Colors.orange),
-          Icon(Icons.home, color: Colors.orange),
-          Icon(Icons.person, color: Colors.orange),
+          Icon(Icons.list, color: Color.fromARGB(255, 243, 101, 33)),
+          Icon(Icons.home, color: Color.fromARGB(255, 243, 101, 33)),
+          Icon(Icons.person, color: Color.fromARGB(255, 243, 101, 33)),
         ],
         inactiveIcons: const [
           Text("Ranking"),
           Text("Home"),
           Text("Perfil"),
         ],
-        color: Colors.white,
+        color: Color.fromARGB(255, 255, 255, 255),
         height: 60,
         circleWidth: 60,
         activeIndex: tabIndex,
@@ -71,7 +71,7 @@ class _MyNavbarState extends State<MyNavbar> with SingleTickerProviderStateMixin
           bottomRight: Radius.circular(24),
           bottomLeft: Radius.circular(24),
         ),
-        shadowColor: Colors.orange,
+        shadowColor: Color.fromARGB(255, 243, 101, 33),
         elevation: 10,
       ),
       body: PageView(
@@ -82,8 +82,7 @@ class _MyNavbarState extends State<MyNavbar> with SingleTickerProviderStateMixin
         children: [
           Rankings(),
           News(),
-          const MyLogin(),
-          Profile()
+          const MyLogin()
         ],
       ),
     );

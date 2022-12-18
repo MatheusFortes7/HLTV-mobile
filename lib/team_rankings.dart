@@ -61,20 +61,20 @@ class _RankingsState extends State<Rankings> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 63, 0, 122),
+      backgroundColor: Color.fromARGB(255,45, 50, 72),
       appBar: AppBar(
         title: Text(
           "Ranking",
-          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+          style: TextStyle(color: Color.fromARGB(255, 243, 101, 33), fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         elevation: 0,
-        backgroundColor: Color.fromARGB(255, 63, 0, 122),
+        backgroundColor: Color.fromARGB(255,45, 50, 72),
       ),
       body: Container(
         //height: 600,
         decoration: BoxDecoration(
-          color: Colors.grey,
+          color: Color.fromARGB(255,45, 50, 72),
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),
@@ -90,7 +90,7 @@ class _RankingsState extends State<Rankings> {
                 "CS:GO World ranking",
                 style: TextStyle(
                     fontSize: 20,
-                    color: Color.fromARGB(255, 0, 0, 0),
+                    color: Color.fromARGB(255, 255, 255, 255),
                     fontWeight: FontWeight.bold),
               ),
             ),
